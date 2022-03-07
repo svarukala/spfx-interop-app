@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "spfx-interop-app",
+    "libraryId": "421916e2-b681-4b24-81e4-ca4be46449e3",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "spfx-interop-app",
+    "solutionShortDescription": "spfx-interop-app description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

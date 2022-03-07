@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-interop-app-client-side-solution",
+    "id": "421916e2-b681-4b24-81e4-ca4be46449e3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "spfx-interop-app description"
+      },
+      "longDescription": {
+        "default": "spfx-interop-app description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-interop-app Feature",
+        "description": "The feature that activates elements of the spfx-interop-app solution.",
+        "id": "41546568-2a86-464e-9e6c-d9c92ffc3918",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-interop-app.sppkg"
+  }
+}

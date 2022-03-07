@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spo-interop-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spoInterop/SpoInteropWebPart.js",
+          "manifest": "./src/webparts/spoInterop/SpoInteropWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpoInteropWebPartStrings": "lib/webparts/spoInterop/loc/{locale}.js"
+  }
+}
