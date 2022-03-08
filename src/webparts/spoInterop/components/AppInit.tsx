@@ -8,6 +8,7 @@ import { Providers, SharePointProvider, SimpleProvider, ProviderState } from '@m
 import SPOReusable from './SPOReusable';
 import MSGReusable from './MSGReusable';
 import MGTReusable from './MGTReusable';
+import ShowAdaptiveCard from './ShowAdaptiveCard';
 import {  FileList, PeoplePicker, Get, MgtTemplateProps } from '@microsoft/mgt-react/dist/es6/spfx';
 import * as MicrosoftGraph from '@microsoft/microsoft-graph-types';
 
@@ -253,6 +254,9 @@ function AppInit(props) {
                             </Get>
                         </PivotItem>
                     </Pivot>
+                </PivotItem>
+                <PivotItem headerText="Adaptive Card">
+                    <ShowAdaptiveCard />
                 </PivotItem>                
             </Pivot>
         }
