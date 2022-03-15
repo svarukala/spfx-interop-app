@@ -14,7 +14,7 @@ import * as MicrosoftGraph from '@microsoft/microsoft-graph-types';
 
 const msalConfig: Configuration = {
   auth: {
-    clientId: "c613e0d1-161d-4ea0-9db4-0f11eeabc2fd",
+    clientId: "0d3aa5dd-93b9-40e3-aaf4-73e209f153d3", //"c613e0d1-161d-4ea0-9db4-0f11eeabc2fd",
     authority: "https://login.microsoftonline.com/044f7a81-1422-4b3d-8f68-3001456e6406",
     redirectUri:"https://m365x229910.sharepoint.com/sites/DevDemo/_layouts/15/workbench.aspx",
   },
@@ -54,11 +54,20 @@ const msalInstance: PublicClientApplication = new PublicClientApplication(
 
 let currentAccount: AccountInfo = null;
 
+/*
 const tokenrequest: SilentRequest = {
     scopes: ['Mail.Read','calendars.read', 'user.read', 'openid', 'profile', 'people.read', 'user.readbasic.all', 'files.read', 'files.read.all'],
     account: currentAccount,
-}; 
-
+};
+*/ 
+const mgtTokenrequest: SilentRequest = {
+  scopes: ['Mail.Read','calendars.read', 'user.read', 'openid', 'profile', 'people.read', 'user.readbasic.all', 'files.read', 'files.read.all'],
+  account: currentAccount,
+};
+const tokenrequest = {
+  scopes: ["api://3271e1a1-0da7-476b-b573-e360600674a9/access_as_user"],
+  account: currentAccount,
+};
 
 function AppInit(props) {
   // Declare a new state variable, which we'll call "count"
@@ -111,7 +120,7 @@ function AppInit(props) {
     setCurrentAccount();
     console.log(currentAccount);
     return msalInstance
-      .acquireTokenSilent(tokenrequest)
+      .acquireTokenSilent(mgtTokenrequest)
       .then((tokenResponse) => {
         console.log("Inside Silent");
         console.log("Access token: "+ tokenResponse.accessToken);
@@ -126,7 +135,7 @@ function AppInit(props) {
         } else {
           console.log("Some other error. Inside SSO.");
           //const loginPopupRequest: AuthorizationUrlRequest = tokenrequest;
-          const loginPopupRequest: AuthorizationUrlRequest = tokenrequest as AuthorizationUrlRequest;
+          const loginPopupRequest: AuthorizationUrlRequest = mgtTokenrequest as AuthorizationUrlRequest;
           loginPopupRequest.loginHint = loginName;
           return msalInstance
             .ssoSilent(loginPopupRequest)
@@ -226,14 +235,14 @@ function AppInit(props) {
     <div>
         {error && "Error: " + error}
         {
-            ssoToken &&
+            accessToken &&
           
             <Pivot aria-label="Basic Pivot Example">
                 <PivotItem headerText="SPO REST API">
-                    <SPOReusable idToken={ssoToken} />
+                    <SPOReusable idToken={accessToken} />
                 </PivotItem>
                 <PivotItem headerText="MS Graph REST API">
-                    <MSGReusable idToken={ssoToken} />
+                    <MSGReusable idToken={accessToken} />
                 </PivotItem>
                 <PivotItem headerText="MS Graph Toolkit">
                     <Pivot>

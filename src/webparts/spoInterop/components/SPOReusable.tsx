@@ -76,8 +76,13 @@ function SPOReusable(props) {
   return (
     <div>
         {error && "Error: " + error}
-        {ssoToken && "ID Token: " + ssoToken}
+        
         {searchResults && <List items={searchResults} />}
+
+        <br/><br/>
+        {ssoToken && "ID Token: " + ssoToken}
+        <br/><br/>
+        {resourceOboToken && "Access Token: " + resourceOboToken}
     </div>
   );
 }

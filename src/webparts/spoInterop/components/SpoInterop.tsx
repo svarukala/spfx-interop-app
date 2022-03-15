@@ -20,7 +20,7 @@ export default class SpoInterop extends React.Component<ISpoInteropProps, {}> {
     return (
       <section className={`${styles.spoInterop} ${hasTeamsContext ? styles.teams : ''}`}>
         <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
+          
           <h2>Welcome, {escape(userDisplayName)}!</h2>
         </div>
         <div>
